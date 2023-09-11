@@ -1,4 +1,4 @@
-"use client"
+
 
 import WallpaperCard from '@/components/WallpaperCard'
 import Image from 'next/image'
@@ -7,42 +7,21 @@ import { createClient } from 'pexels';
 
 import { fetchImages } from '@/utils/pexels';
 import ShowMore from '@/components/ShowMore';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import Filters from '@/components/Filters';
 
-import { useState } from 'react';
 
-export default function Home() {
-  const per_page = 10;
-  const [images, setimages] = useState()
-  const [more, setmore] = useState(10)
-  const [nature, setnature] = useState("dog")
-  const [loading, setloading] = useState(false)
+export default async function Home({ searchParams }) {
 
-  useEffect(() => {
-    async function getData() {
-      const data = await fetchImages(nature, more)
-      setimages(data)
-    }
-    getData();
-    return () => {
-      setloading(false)
-
-    }
-  }, [nature, more])
-
-  function handleClick() {
-    setloading(true)
-    setmore(more + 10)
-  }
+  const per_page = parseInt(searchParams.page || 10);
+  const nature = searchParams.query || "nature"
+  console.log(per_page)
+  const images = await fetchImages(nature, per_page);
 
   return (
 
     <>
-      <div className='text-gray-900 mb-10 flex justify-end'>
-        <input onChange={(e) => setnature(e.target.value)} className='bg-slate-400 me-5 rounded-xl px-3 w-64 py-2' type="text" value={nature} />
-
-      </div>
+      <Filters />
 
       <div className='wallpapers_wrapper'>
         {images?.map((item) => (
@@ -54,8 +33,7 @@ export default function Home() {
 
       <div className='flex justify-center py-10'>
 
-
-        <button disabled={loading} onClick={handleClick} className='bg-slate-950 px-5 py-3 rounded-xl text-white font-bold'>Get More </button>
+        <ShowMore perPage={per_page} />
 
       </div>
 
