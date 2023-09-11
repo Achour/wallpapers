@@ -17,7 +17,7 @@ export default function Filters() {
     function handleSubmit(key) {
         if (key == "Enter") {
             const pathname = updateSearchParams('query', Category.toLowerCase())
-            alert(pathname)
+
             router.push(pathname, { scroll: false })
         }
     }
