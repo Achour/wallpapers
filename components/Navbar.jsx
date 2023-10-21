@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { Popover } from '@headlessui/react'
-
+import Filters from '@/components/Filters';
 import { Listbox } from '@headlessui/react'
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
@@ -18,10 +18,10 @@ export default function Navbar() {
                 <div className="flex justify-between items-center">
 
                     <ul className='flex justify-center gap-5'>
-                        <li>Home</li>
-                        <li>Portfolio</li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="https://achourdart.vercel.app">Blog</a></li>
                     </ul>
-                    <button onClick={handleClick} className='bg-zinc-100 text-black px-5 py-2 rounded-full'>Submit</button>
+                    <Filters />
 
 
                 </div>

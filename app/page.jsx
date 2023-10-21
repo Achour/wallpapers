@@ -8,7 +8,7 @@ import { createClient } from 'pexels';
 import { fetchImages } from '@/utils/pexels';
 import ShowMore from '@/components/ShowMore';
 import { Suspense } from 'react';
-import Filters from '@/components/Filters';
+
 
 
 export default async function Home({ searchParams }) {
@@ -21,13 +21,13 @@ export default async function Home({ searchParams }) {
   return (
 
     <>
-      <Filters />
+
 
       <div className='wallpapers_wrapper'>
         {images?.map((item) => (
-          <Suspense fallback={"loading....."}>
-            <WallpaperCard wallpaperSrc={item.src.medium} />
-          </Suspense>
+
+          <WallpaperCard wallpaperSrc={item.src.medium} wallpaperOrg={item.src.original} />
+
         ))}
       </div>
 

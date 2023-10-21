@@ -23,9 +23,8 @@ export default function Filters() {
     }
 
     return (
-        <div className='text-gray-900 mb-10 flex justify-end'>
-            <input onKeyDown={(e) => handleSubmit(e.key)} onChange={(e) => handleChange(e.target.value)} className='bg-slate-400 me-5 w-64 rounded-xl px-3 py-2' type="text" value={Category} />
 
-        </div>
+        <input onKeyDown={(e) => handleSubmit(e.key)} onChange={(e) => handleChange(e.target.value)} className='text-slate-950 bg-slate-400 me-5 w-64 rounded-xl px-3 py-2' type="text" value={Category} />
+
     )
 }
