@@ -70,11 +70,13 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
             <Dialog
 
                 className="fixed top-0 w-full 
+                z-[200]
                 h-screen
             backdrop-blur-xl bg-white/10 
             flex justify-center items-center" open={isOpen} onClose={() => setIsOpen(false)}>
                 <Dialog.Panel
                     className="relative
+                
                     max-w-[400px] overflow-hidden
                     bg-white text-slate-950 rounded-xl">
                     <img className='object-contain ' src={wallpaperOrg} alt="" />
