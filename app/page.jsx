@@ -1,41 +1,63 @@
+"use client"
+
+import { useSearchParams } from "next/navigation";
+
+import WallpaperCard from './components/WallpaperCard'
 
 
-import WallpaperCard from '@/components/WallpaperCard'
-import Image from 'next/image'
-import Link from 'next/link'
-import { createClient } from 'pexels';
+import ShowMore from './components/ShowMore';
 
-import { fetchImages } from '@/utils/pexels';
-import ShowMore from '@/components/ShowMore';
-import { Suspense } from 'react';
+import Loading from './loading';
+
+import { useEffect, useState } from 'react';
 
 
+export default function Home() {
 
-export default async function Home({ searchParams }) {
 
-  const per_page = parseInt(searchParams.page || 10);
-  const nature = searchParams.query || "nature"
-  console.log(per_page)
-  const images = await fetchImages(nature, per_page);
+  const searchParams = useSearchParams();
+  const per_page = parseInt(searchParams.get("page") || 10);
+  const nature = searchParams.get("query") || "nature"
+
+  const [loadingstate, setloadingstate] = useState(false);
+  const [images, setimages] = useState([]);
+
+  useEffect(() => {
+    setloadingstate(true);
+    fetch(`/api?page=${per_page}&query=${nature}`).then(res => res.json())
+      .then((json) => {
+
+        setimages(json)
+        setloadingstate(false)
+      })
+    console.log(images)
+
+  }, [nature, per_page]);
+
+
+
+  if (loadingstate === true && per_page === 10) {
+    return <Loading />
+  }
 
   return (
 
     <>
 
-
       <div className='wallpapers_wrapper'>
         {images?.map((item) => (
 
-          <WallpaperCard wallpaperSrc={item.src.medium} wallpaperOrg={item.src.original} />
+          <WallpaperCard photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />
 
         ))}
       </div>
 
       <div className='flex justify-center py-10'>
 
-        <ShowMore perPage={per_page} />
+        <ShowMore loadingstate={loadingstate} perPage={per_page} />
 
       </div>
+
 
     </>
   )

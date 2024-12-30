@@ -1,18 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components{
-    header{
-        @apply font-bold px-10 sm:px-0 py-10 bg-slate-950 text-white;
-    }
-    body{
-        @apply bg-slate-900 text-white
-    }
-    .container-wrapper{
-        @apply py-10
-    }
+@layer components {
+  header {
+    @apply font-bold px-10 sm:px-0 py-10 bg-slate-200 text-slate-950;
+  }
+  body {
+    @apply bg-white text-slate-950;
+  }
+  .container-wrapper {
+    @apply py-10;
+  }
 
-    .wallpapers_wrapper{
-        @apply grid px-5 md:px-0 grid-cols-2 md:grid-cols-4 gap-5
-    }
+  .wallpapers_wrapper {
+    @apply grid px-5 md:px-0 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5;
+  }
 }
