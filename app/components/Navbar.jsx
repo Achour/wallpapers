@@ -19,8 +19,8 @@ export default function Navbar() {
 
                     <ul className='flex  gap-5'>
                         <li><a href="/">Home</a></li>
-                        <li><a href="https://mrdigitus.com/">Portfolio</a></li>
-                        <li><a href="https://mrdigitus.com/">Source Code</a></li>
+                        <li><a target='_blank' href="https://mrdigitus.com/">Portfolio</a></li>
+                        <li><a target='_blank' href="https://github.com/Achour/image-gallery">Source Code</a></li>
                     </ul>
                     <Filters />
 

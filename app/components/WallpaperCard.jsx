@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 
-export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg, avgColor }) {
+export default function WallpaperCard({ alt, photoGrapher, wallpaperSrc, wallpaperOrg, avgColor }) {
 
     let [isOpen, setIsOpen] = useState(false)
 
@@ -47,17 +47,19 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
 
                 <div
                     // style={{ backgroundColor: avgColor }}
-                    style={{ color: textColor }}
-                    className={`absolute backdrop-blur-3xl bottom-0 text-black w-full p-4`}>
+                    style={{ color: textColor, backgroundColor: `${avgColor}FC` }}
+
+                    className={`absolute  bottom-0 text-black w-full p-4 `}>
 
                     <div className='flex justify-between gap-x-2 items-center text-sm'>
                         <div>
 
-                            <h1 >Photographer: {photoGrapher} </h1>
-                            <h1 >Average Color: {avgColor}</h1>
+                            <h1>Photographer: {photoGrapher} </h1>
+
                         </div>
                         <button
-                            className='bg-white/50 font-bold rounded-full text-black py-1 px-2 '
+                            style={{ color: textColor }}
+                            className='bg-white/50 font-bold rounded-full  py-1 px-2 '
                             onClick={handleClick} >View</button>
                     </div>
                 </div>

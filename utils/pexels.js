@@ -22,7 +22,7 @@ export async function fetchImages(query = "nature", perPage = 10) {
         per_page: perPage,
       },
     });
-    console.log(response);
+
     return response.data.photos;
   } catch (error) {
     console.error("Error fetching images from Pexels:", error);

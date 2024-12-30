@@ -23,6 +23,7 @@ export default function Home() {
   const [images, setimages] = useState([]);
 
   useEffect(() => {
+
     setloadingstate(true);
     fetch(`/api?page=${per_page}&query=${nature}`).then(res => res.json())
       .then((json) => {
@@ -47,7 +48,7 @@ export default function Home() {
       <div className='wallpapers_wrapper md:mt-20 mt-32'>
         {images?.map((item, index) => (
 
-          <WallpaperCard key={index} photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />
+          <WallpaperCard alt={item.alt} key={index} photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />
 
         ))}
       </div>
