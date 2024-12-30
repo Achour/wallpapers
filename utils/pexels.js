@@ -39,3 +39,54 @@ export function updateSearchParams(type, value, search = false) {
   const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
   return newPathName;
 }
+
+// not used as the pexels api offers avgColor
+export const getAverageColor = (imageUrl) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    // Set crossOrigin if needed (for external images)
+    img.crossOrigin = "Anonymous";
+
+    img.onload = () => {
+      // Create a canvas to draw the image
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      // Draw the image on the canvas
+      ctx.drawImage(img, 0, 0);
+
+      // Get the pixel data from the canvas
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      let r = 0,
+        g = 0,
+        b = 0;
+      const pixelCount = data.length / 4;
+
+      // Loop through each pixel and accumulate the RGB values
+      for (let i = 0; i < data.length; i += 4) {
+        r += data[i]; // Red
+        g += data[i + 1]; // Green
+        b += data[i + 2]; // Blue
+      }
+
+      // Calculate average color
+      r = Math.floor(r / pixelCount);
+      g = Math.floor(g / pixelCount);
+      b = Math.floor(b / pixelCount);
+
+      resolve(`rgb(${r}, ${g}, ${b})`);
+    };
+
+    img.onerror = (err) => {
+      reject("Failed to load image");
+    };
+
+    // Start loading the image
+    img.src = imageUrl;
+  });
+};
