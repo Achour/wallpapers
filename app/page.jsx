@@ -45,9 +45,9 @@ export default function Home() {
     <>
 
       <div className='wallpapers_wrapper'>
-        {images?.map((item) => (
+        {images?.map((item, index) => (
 
-          <WallpaperCard photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />
+          <WallpaperCard key={index} photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />
 
         ))}
       </div>
