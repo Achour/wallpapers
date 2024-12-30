@@ -29,7 +29,7 @@ export default function Filters() {
 
     return (
 
-        <input onKeyDown={(e) => handleSubmit(e.key)} onChange={(e) => handleChange(e.target.value)} className='tex-slate-950 bg-white me-5 md:w-64 w-full rounded-xl px-3 py-2' type="text" value={Category} />
+        <input onKeyDown={(e) => handleSubmit(e.key)} onChange={(e) => handleChange(e.target.value)} className='tex-slate-950 bg-transparent/50 me-5 md:w-64 w-full rounded-xl px-3 py-2' type="text" value={Category} />
 
     )
 }

@@ -3,16 +3,16 @@
 @tailwind utilities;
 @layer components {
   header {
-    @apply font-bold px-10 sm:px-0 py-10 bg-slate-200 text-slate-950;
+    @apply shadow fixed w-full z-[100] font-bold px-5 lg:px-0 py-5 bg-orange-300/20 backdrop-blur-xl text-white;
   }
   body {
-    @apply bg-white text-slate-950;
+    @apply bg-fixed bg-gradient-to-b from-pink-300 to-orange-300 text-slate-950;
   }
   .container-wrapper {
     @apply py-10;
   }
 
   .wallpapers_wrapper {
-    @apply grid px-5 md:px-0 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5;
+    @apply grid px-5 lg:px-0 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5;
   }
 }
