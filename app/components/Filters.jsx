@@ -1,6 +1,6 @@
 "use client"
 import { useSearchParams } from "next/navigation";
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -28,14 +28,16 @@ export default function Filters() {
     }
 
     return (
+        <Suspense>
 
-        <input
-            placeholder="Search for a wallpaper"
-            onKeyDown={(e) => handleSubmit(e.key)}
-            onChange={(e) => handleChange(e.target.value)}
-            className='tex-slate-950 bg-transparent/50 me-5 md:w-64 w-full rounded-xl px-3 py-2'
-            type="text"
-            value={Category} />
+            <input
+                placeholder="Search for a wallpaper"
+                onKeyDown={(e) => handleSubmit(e.key)}
+                onChange={(e) => handleChange(e.target.value)}
+                className='tex-slate-950 bg-transparent/50 me-5 md:w-64 w-full rounded-xl px-3 py-2'
+                type="text"
+                value={Category} />
 
+        </Suspense>
     )
 }

@@ -22,17 +22,17 @@ export default function ShowMore({ loadingstate, perPage }) {
 
     return (
         <>
-            <Suspense>
-
-
-                <button onClick={handleClick} className='bg-slate-950 rounded-lg text-white font-bold px-5 py-2'>
-
-                    {loadingstate ? ("Loading") : "Show More"}
 
 
 
-                </button>
-            </Suspense>
+            <button onClick={handleClick} className='bg-slate-950 rounded-lg text-white font-bold px-5 py-2'>
+
+                {loadingstate ? ("Loading") : "Show More"}
+
+
+
+            </button>
+
         </>
     )
 }
