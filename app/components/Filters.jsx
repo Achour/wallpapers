@@ -7,7 +7,7 @@ import React from 'react'
 
 export default function Filters() {
 
-    const searchParams = useSearchParams();
+
 
     const router = useRouter();
 
