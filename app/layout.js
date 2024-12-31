@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Image Gallery",
+  title: "Wallpapers web app",
   description: "Created by Achour Meguenni",
 };
 
