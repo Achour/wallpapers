@@ -11,7 +11,7 @@ export default function Filters() {
 
     const router = useRouter();
 
-    const [Category, setCategory] = useState(searchParams.get("query") || "")
+    const [Category, setCategory] = useState("")
 
 
 
