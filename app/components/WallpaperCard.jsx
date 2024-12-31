@@ -30,9 +30,35 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
     // Dynamically determine the text color based on avgColor
     const textColor = getTextColor(avgColor);
 
+    async function handleDownLoad(imageUrl) {
+        try {
+            // Fetch the image as a Blob
+            const response = await fetch(imageUrl);
+            if (!response.ok) {
+                throw new Error('Failed to fetch the image.');
+            }
+            const blob = await response.blob();
 
+            // Create a temporary link to trigger the download
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'downloaded-image.jpg'; // Filename for the downloaded file
+            a.style.display = 'none'; // Hide the link element
+            document.body.appendChild(a);
+            a.click(); // Trigger download
+            document.body.removeChild(a); // Clean up
+
+            // Clean up the object URL
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Error downloading the file:', error);
+        }
+    }
 
     async function handleClick() {
+
+
 
         setIsOpen(true)
     }
@@ -79,10 +105,6 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
 
                 </div>
 
-
-
-
-
                 <Dialog
 
                     className="fixed top-0 w-full 
@@ -99,7 +121,7 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                         <div className="absolute w-full p-2 bottom-0 flex justify-between gap-x-2">
 
                             <button onClick={() => setIsOpen(false)} className='w-full border border-white/20 bg-red-600/50 backdrop-blur-md py-2 px-4 rounded-xl'>Cancle</button>
-                            <button onClick={() => setIsOpen(false)} className='w-full border border-white/20 bg-white/50 backdrop-blur-md  py-2 px-4 rounded-xl'>Download</button>
+                            <button onClick={() => handleDownLoad(wallpaperOrg)} className='w-full border border-white/20 bg-white/50 backdrop-blur-md  py-2 px-4 rounded-xl'>Download</button>
                         </div>
                     </Dialog.Panel>
                 </Dialog>

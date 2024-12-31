@@ -16,13 +16,19 @@ export default function Home() {
 
 
   const searchParams = useSearchParams();
+
+
+
   const per_page = parseInt(searchParams.get("page") || 10);
-  const nature = searchParams.get("query") || "nature"
+  const nature = searchParams.get("query");
 
   const [loadingstate, setloadingstate] = useState(false);
   const [images, setimages] = useState([]);
 
+
   useEffect(() => {
+
+
 
     setloadingstate(true);
     fetch(`/api?page=${per_page}&query=${nature}`).then(res => res.json())
@@ -31,7 +37,6 @@ export default function Home() {
         setimages(json)
         setloadingstate(false)
       })
-    console.log(images)
 
   }, [nature, per_page]);
 

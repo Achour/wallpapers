@@ -30,15 +30,15 @@ export async function fetchImages(query = "nature", perPage = 10) {
   }
 }
 
-export function updateSearchParams(type, value, search = false) {
-  const searchParams = new URLSearchParams(window.location.search);
-  searchParams.set(type, value);
-  if (search === true) {
-    searchParams.set("page", 10);
-  }
-  const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
-  return newPathName;
-}
+// export function updateSearchParams(type, value, search = false) {
+//   const searchParams = new URLSearchParams(window.location.search);
+//   searchParams.set(type, value);
+//   if (search === true) {
+//     searchParams.set("page", 10);
+//   }
+//   const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
+//   return newPathName;
+// }
 
 // not used as the pexels api offers avgColor
 export const getAverageColor = (imageUrl) => {

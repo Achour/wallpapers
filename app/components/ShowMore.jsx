@@ -1,9 +1,9 @@
 "use client"
+
 import React from 'react'
 import { useRouter } from 'next/navigation';
-import { updateSearchParams } from '@/utils/pexels';
 import { useState } from 'react';
-import Loading from '../loading';
+
 export default function ShowMore({ loadingstate, perPage }) {
 
 
