@@ -6,7 +6,7 @@ import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Wallpapers web app",
+  title: "Wallpapers Web App",
   description: "Created by Achour Meguenni",
 };
 
