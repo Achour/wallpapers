@@ -2,6 +2,8 @@
 import React from 'react'
 import Image from 'next/image'
 
+import { opacify, darken, lighten, shade, tint, transparentize } from 'polished';
+
 import { useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 
@@ -66,12 +68,15 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
     return (
         <>
             <div
-                style={{ backgroundColor: avgColor }}
-                className="bg-red-600 rotate-2 relative rounded-xl shadow-2xl drop-shadow-md ">
+                style={{
+                    color: textColor,
+                    backgroundImage: `linear-gradient(to left, ${tint(0.3, avgColor)}, ${avgColor})`,
+                }}
+                className=" rotate-2 relative rounded-xl shadow-2xl drop-shadow-md ">
 
 
                 <div
-                    style={{ backgroundColor: avgColor }}
+
                     className=' -rotate-2 relative group w-full h-72 md:h-96 rounded-xl ' >
 
 
@@ -85,19 +90,27 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
 
                     <div
                         // style={{ backgroundColor: avgColor }}
-                        style={{ color: textColor, backgroundColor: `${avgColor}FC` }}
+                        //style={{ color: textColor, backgroundColor: `${avgColor}` }}
+                        style={{
+
+                            color: textColor,
+                            backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
+                        }}
 
 
-                        className={`absolute rounded-b-xl    bottom-0 text-black w-full p-2 md:p-4 `}>
+                        className={`absolute rounded-b-xl  bg-[url('/blur.svg')]   bottom-0 text-black w-full p-2 md:p-4 `}>
 
-                        <div className='flex justify-between gap-x-2   items-center text-xs  md:text-sm'>
+                        <div className='flex  justify-between gap-x-2   items-center text-xs  md:text-sm'>
                             <div>
 
                                 <h1>Photographer: {photoGrapher} </h1>
 
                             </div>
                             <button
-                                style={{ color: textColor }}
+                                style={{
+
+                                    color: textColor
+                                }}
                                 className='bg-white/50 font-bold rounded-full  py-1 px-2 '
                                 onClick={handleClick} >View</button>
                         </div>
@@ -126,7 +139,7 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                     </Dialog.Panel>
                 </Dialog>
 
-            </div>
+            </div >
         </>
     )
 }
