@@ -4,7 +4,7 @@
 @layer components {
   header {
     @apply shadow fixed 
-    top-3 z-[100] font-bold 
+    top-0 md:top-3 z-[100] font-bold 
     lg:rounded-xl
     px-4 py-2 bg-gray-950/50
     backdrop-blur-3xl 
