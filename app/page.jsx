@@ -17,8 +17,6 @@ export default function Home() {
 
   const searchParams = useSearchParams();
 
-
-
   const per_page = parseInt(searchParams.get("page") || 10);
   const nature = searchParams.get("query");
 
@@ -50,7 +48,7 @@ export default function Home() {
 
     <>
 
-      <div className='wallpapers_wrapper md:mt-20 mt-32'>
+      <div className='wallpapers_wrapper  '>
         {images?.map((item, index) => (
 
           <WallpaperCard key={index} photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />

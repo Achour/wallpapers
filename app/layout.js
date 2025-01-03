@@ -3,8 +3,6 @@ import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import { Suspense } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
   title: "Wallpapers Web App",
   description: "Created by Achour Meguenni",
@@ -13,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body>
         <Suspense>
           <Navbar />
           <div className="container-wrapper">

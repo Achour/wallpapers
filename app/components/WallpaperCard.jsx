@@ -98,7 +98,7 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                         }}
 
 
-                        className={`absolute rounded-b-xl  bg-[url('/blur.svg')]   bottom-0 text-black w-full p-2 md:p-4 `}>
+                        className={`absolute rounded-b-xl    bottom-0 text-black w-full p-2 md:p-4 `}>
 
                         <div className='flex  justify-between gap-x-2   items-center text-xs  md:text-sm'>
                             <div>

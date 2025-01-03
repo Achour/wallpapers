@@ -35,7 +35,7 @@ export default function Filters() {
             placeholder="Search for a wallpaper"
             onKeyDown={(e) => handleSubmit(e.key)}
             onChange={(e) => handleChange(e.target.value)}
-            className='tex-slate-950 bg-transparent/50 me-5 md:w-64 w-full rounded-xl px-3 py-2'
+            className='tex-slate-950 bg-transparent/50  md:w-64 w-full rounded-xl px-3 py-2'
             type="text"
             value={Category} />
 
