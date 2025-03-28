@@ -24,9 +24,11 @@ export default function Navbar() {
                         <li><a target='_blank' href="https://mrdigitus.com/">Portfolio</a></li>
                         <li><a target='_blank' href="https://x.com/mr_digitus">Contact</a></li>
                     </ul>
-                    <Button>
-                        <Github />
-                        GitHub
+                    <Button asChild>
+                        <a target='_blank' href="https://github.com/Achour/">
+                            <Github />
+                            GitHub
+                        </a>
                     </Button>
                 </div>
             </div>
