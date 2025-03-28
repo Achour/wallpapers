@@ -48,7 +48,7 @@ export default function Home() {
 
     <>
 
-      <div className='container grid 
+      <div className=' grid 
     lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5  '>
         {images?.map((item, index) => (
 
