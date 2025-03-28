@@ -1,15 +1,12 @@
 "use client"
 import React from 'react'
-import { Popover } from '@headlessui/react'
-import Filters from './Filters';
-import { Listbox } from '@headlessui/react'
+
 import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
 import { Button } from '@/components/ui/button';
 import { Github } from "lucide-react"
 import { ModeToggle } from '@/components/mode-toggle';
 
-export default function Navbar() {
+export default function Header() {
     let [isOpen, setIsOpen] = useState(false)
     function handleClick() {
         setIsOpen(true)

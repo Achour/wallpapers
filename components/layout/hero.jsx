@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
-import Filters from '@/app/components/Filters';
+import Filters from '@/components/Filters';
 
 const Hero = () => {
     const [searchTerm, setSearchTerm] = useState('');

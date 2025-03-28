@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Navbar from "./components/Navbar";
+import Header from "../components/layout/header";
 import { Suspense } from "react";
 import Hero from "@/components/layout/hero";
 
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Suspense>
-            <Navbar />
+            <Header />
             <Hero />
 
             <div className="container my-12">{children}</div>

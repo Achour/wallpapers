@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 
-import WallpaperCard from './components/WallpaperCard'
+import WallpaperCard from '../components/WallpaperCard'
 
 
-import ShowMore from './components/ShowMore';
+import ShowMore from '../components/ShowMore';
 
 import Loading from './loading';
 
