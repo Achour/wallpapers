@@ -3,7 +3,7 @@ import { fetchImages } from "@/utils/pexels";
 export async function GET(request) {
   const searchParams = request.nextUrl.searchParams;
   const per_page = parseInt(searchParams.get("page"));
-  const options = ["nature", "sunset", "abstract", "cityscape", "ocean"];
+  const options = ["Black And White"];
   const nature =
     searchParams.get("query") == "null"
       ? options[Math.floor(Math.random() * options.length)]
