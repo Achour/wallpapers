@@ -67,79 +67,73 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
 
     return (
         <>
+
+
             <div
-                style={{
-                    color: textColor,
-                    backgroundImage: `linear-gradient(to left, ${tint(0.3, avgColor)}, ${avgColor})`,
-                }}
-                className=" rotate-2 relative rounded-xl shadow-2xl drop-shadow-md ">
 
+                className=' relative group w-full aspect-[9/16]  rounded-lg overflow-hidden ' >
 
-                <div
+                <button
+                    style={{
 
-                    className=' -rotate-2 relative group w-full h-72 md:h-96 rounded-xl ' >
-
-
+                        color: textColor
+                    }}
+                    onClick={handleClick} >
                     <Image
                         alt="image"
                         src={wallpaperSrc}
                         fill
-                        className=' object-cover rounded-xl   duration-200'
+                        className=' object-cover  aspect-video'
                     />
+                </button>
 
 
-                    <div
-                        // style={{ backgroundColor: avgColor }}
-                        //style={{ color: textColor, backgroundColor: `${avgColor}` }}
-                        style={{
+                <div
+                    // style={{ backgroundColor: avgColor }}
+                    //style={{ color: textColor, backgroundColor: `${avgColor}` }}
+                    style={{
 
-                            color: textColor,
-                            backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
-                        }}
+                        color: textColor,
+                        backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
+                    }}
 
 
-                        className={`absolute rounded-b-xl    bottom-0 text-black w-full p-2 md:p-4 `}>
+                    className={`absolute  bottom-0 text-black w-full p-2 md:p-4 `}>
 
-                        <div className='flex  justify-between gap-x-2   items-center text-xs  md:text-sm'>
-                            <div>
+                    <div className='flex  justify-between gap-x-2   items-center text-xs  md:text-sm'>
+                        <div>
 
-                                <h1>Photographer: {photoGrapher} </h1>
+                            <h1>Photographer: {photoGrapher} </h1>
 
-                            </div>
-                            <button
-                                style={{
-
-                                    color: textColor
-                                }}
-                                className='bg-white/50 font-bold rounded-full  py-1 px-2 '
-                                onClick={handleClick} >View</button>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
 
-                <Dialog
+            </div>
 
-                    className="fixed top-0 w-full 
+            <Dialog
+
+                className="fixed top-0 w-full 
                 z-[200]
                 h-screen
             backdrop-blur-xl bg-white/10 
             flex justify-center items-center" open={isOpen} onClose={() => setIsOpen(false)}>
-                    <Dialog.Panel
-                        className="relative
+                <Dialog.Panel
+                    className="relative
                 
                     max-w-[400px] overflow-hidden
                     bg-white text-slate-950 rounded-xl">
-                        <img className='object-contain ' src={wallpaperOrg} alt="" />
-                        <div className="absolute w-full p-2 bottom-0 flex justify-between gap-x-2">
+                    <img className='object-contain ' src={wallpaperOrg} alt="" />
+                    <div className="absolute w-full p-2 bottom-0 flex justify-between gap-x-2">
 
-                            <button onClick={() => setIsOpen(false)} className='w-full border border-white/20 bg-red-600/50 backdrop-blur-md py-2 px-4 rounded-xl'>Cancle</button>
-                            <button onClick={() => handleDownLoad(wallpaperOrg)} className='w-full border border-white/20 bg-white/50 backdrop-blur-md  py-2 px-4 rounded-xl'>Download</button>
-                        </div>
-                    </Dialog.Panel>
-                </Dialog>
+                        <button onClick={() => setIsOpen(false)} className='w-full border border-white/20 bg-red-600/50 backdrop-blur-md py-2 px-4 rounded-xl'>Cancle</button>
+                        <button onClick={() => handleDownLoad(wallpaperOrg)} className='w-full border border-white/20 bg-white/50 backdrop-blur-md  py-2 px-4 rounded-xl'>Download</button>
+                    </div>
+                </Dialog.Panel>
+            </Dialog>
 
-            </div >
+
         </>
     )
 }

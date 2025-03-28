@@ -5,6 +5,10 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { updateSearchParams } from '@/utils/pexels'
 
+import { Input } from "@/components/ui/input";
+
+import { Search } from 'lucide-react';
+
 
 
 export default function Filters() {
@@ -30,14 +34,23 @@ export default function Filters() {
     }
 
     return (
+        <>
 
-        <input
-            placeholder="Search for a wallpaper"
-            onKeyDown={(e) => handleSubmit(e.key)}
-            onChange={(e) => handleChange(e.target.value)}
-            className='tex-slate-950 bg-transparent/50  md:w-64 w-full rounded-xl px-3 py-2'
-            type="text"
-            value={Category} />
+            <Input
+                type="text"
+                placeholder="Search for a wallpaper"
+                onKeyDown={(e) => handleSubmit(e.key)}
+                onChange={(e) => handleChange(e.target.value)}
+                className="w-full pl-10 py-3 text-lg"
+                value={Category}
+            />
+            <Search
+                className="absolute w-65 left-3 top-1/2 -translate-y-1/2 text-gray-700"
+                size={24}
+            />
 
+
+
+        </>
     )
 }

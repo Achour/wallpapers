@@ -48,7 +48,8 @@ export default function Home() {
 
     <>
 
-      <div className='wallpapers_wrapper  '>
+      <div className='container grid 
+    lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5  '>
         {images?.map((item, index) => (
 
           <WallpaperCard key={index} photoGrapher={item.photographer} avgColor={item.avg_color} wallpaperSrc={item.src.portrait} wallpaperOrg={item.src.portrait} />

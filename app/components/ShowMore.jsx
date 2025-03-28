@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { updateSearchParams } from '@/utils/pexels';
 
+import { Button } from "@/components/ui/button"
+
 export default function ShowMore({ loadingstate, perPage }) {
 
 
@@ -23,13 +25,10 @@ export default function ShowMore({ loadingstate, perPage }) {
     return (
         <>
 
-            <button onClick={handleClick} className='bg-slate-950 rounded-lg text-white font-bold px-5 py-2'>
+            <Button onClick={handleClick} >
 
                 {loadingstate ? ("Loading") : "Show More"}
-
-
-
-            </button>
+            </Button>
 
         </>
     )
