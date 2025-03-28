@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { updateSearchParams } from '@/utils/pexels';
 
 import { Button } from "@/components/ui/button"
+import { Loader } from "lucide-react"
 
 export default function ShowMore({ loadingstate, perPage }) {
 
@@ -25,9 +26,12 @@ export default function ShowMore({ loadingstate, perPage }) {
     return (
         <>
 
-            <Button onClick={handleClick} >
-
-                {loadingstate ? ("Loading") : "Show More"}
+            <Button disabled={loadingstate} onClick={handleClick} >
+                {loadingstate ? (
+                    <>
+                        <Loader className='animate-spin' /> Loading
+                    </>
+                ) : "Show More"}
             </Button>
 
         </>
