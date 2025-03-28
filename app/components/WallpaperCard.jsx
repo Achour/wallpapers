@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
+import { Card } from '@/components/ui/card';
 
 import { opacify, darken, lighten, shade, tint, transparentize } from 'polished';
 
@@ -68,10 +69,8 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
     return (
         <>
 
+            <Card className="relative group w-full aspect-[9/16] overflow-hidden ">
 
-            <div
-
-                className=' relative group w-full aspect-[9/16]  rounded-lg overflow-hidden ' >
 
                 <button
                     style={{
@@ -83,14 +82,12 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                         alt="image"
                         src={wallpaperSrc}
                         fill
-                        className=' object-cover  aspect-video'
+                        className=' object-cover'
                     />
                 </button>
 
 
                 <div
-                    // style={{ backgroundColor: avgColor }}
-                    //style={{ color: textColor, backgroundColor: `${avgColor}` }}
                     style={{
 
                         color: textColor,
@@ -98,20 +95,20 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                         // backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
                     }}
 
-
                     className={`absolute  bottom-0 text-black w-full p-2 md:p-4 `}>
 
-                    <div className='flex  justify-between gap-x-2   items-center text-xs  md:text-sm'>
-                        <div>
 
-                            <h1>Photographer: {photoGrapher} </h1>
 
-                        </div>
 
-                    </div>
+                    <h1 className='text-xs md:text-sm'>Photographer: {photoGrapher} </h1>
+
+
+
+
                 </div>
 
-            </div>
+
+            </Card>
 
             <Dialog
 
