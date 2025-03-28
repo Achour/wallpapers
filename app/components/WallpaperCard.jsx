@@ -94,7 +94,8 @@ export default function WallpaperCard({ photoGrapher, wallpaperSrc, wallpaperOrg
                     style={{
 
                         color: textColor,
-                        backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
+                        backgroundColor: `${avgColor}`,
+                        // backgroundImage: `linear-gradient(to left , ${tint(0.3, avgColor)}, ${avgColor})`,
                     }}
 
 
